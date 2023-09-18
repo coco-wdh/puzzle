@@ -3,6 +3,7 @@ import Board from "./Board"
 import Menu from "./Menu"
 import { reversePairs, shuffle } from "../utils/utils"
 import { BOARD_WIDTH, GAME_IDLE, GAME_STARTED, GAME_OVER, GAME_PAUSED } from "../utils/constants"
+import JSConfetti from 'js-confetti'
 
 function Game() {
   const [status, setStatus] = useState(GAME_IDLE);
@@ -46,10 +47,17 @@ function Game() {
     //改变size
     getNewGame()
   }, [size])
+  const confetti = new JSConfetti()
+
+  function showConfetti() {
+    confetti.addConfetti()
+  }
+    /* 判定成功 */
   useEffect(() => {
     let over = tiles.every((tile, index) => tile === index);
     if (over && status === GAME_STARTED) {
       setStatus(GAME_OVER);
+      showConfetti();
       setIsActive(false);
     }
   }, [tiles])
@@ -114,6 +122,7 @@ function Game() {
   function formatTime(obj) {
     return Object.values(obj).map(item => item.toString().padStart(2, "0")).join(":");
   }
+
   return (
     <div className={`game ${moves ? "" : "nomove"}`}>
       <Menu
@@ -125,30 +134,32 @@ function Game() {
         getNewGame={getNewGame}
         pauseTime={handlePaused}
       />
-      {/* <main className={(status === GAME_IDLE || status === GAME_PAUSED) ? "overlay" : ""}> */}
       <main>
-        <Board
-          tileWidth={tileWidth}
-          tilePositions={tilePositions}
-          handleTileClick={handleTileClick}
-        />
-        {(status === GAME_IDLE || status === GAME_PAUSED) &&
-          <div className="overlay">
-            {status === GAME_IDLE && <div
-              className="overlay--text"
+        <div
+          className="board--container"
+          style={{ width: `${BOARD_WIDTH}em`, height: `${BOARD_WIDTH}em` }}
+        >
+          <Board
+            tileWidth={tileWidth}
+            tilePositions={tilePositions}
+            handleTileClick={handleTileClick}
+          />
+          {status === GAME_IDLE && <div className="paused">
+            <div
               onClick={handlePlay}
-            >play</div>}
-            {status === GAME_PAUSED && <div
-              className="overlay--text"
+            >play</div>
+          </div>}
+          {status === GAME_PAUSED && <div className="paused">
+            <div
               onClick={handlePaused}
-            >paused</div>}
-          </div>
-        }
+            >paused</div>
+          </div>}
+        </div>
+        <div className={`handle ${status === GAME_IDLE ? "start" : ""}`}>
+          {status === GAME_IDLE ? <span onClick={handlePlay}>start </span> : <span onClick={getNewGame}>New Game</span>}
+          {status !== GAME_IDLE && <span onClick={handlePaused}>Pause</span>}
+        </div>
       </main>
-      <div className="handle">
-        {status === GAME_IDLE ? <span onClick={handlePlay}>start </span> : <span onClick={getNewGame}>New Game</span>}
-        {status !== GAME_IDLE && <span onClick={handlePaused}>Pause</span>}
-      </div>
       {status === GAME_OVER &&
         <div className="over">
           <div className="over--content">

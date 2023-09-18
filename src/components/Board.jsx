@@ -9,16 +9,15 @@ function Board({ tilePositions, handleTileClick, tileWidth }) {
       top={pos[0] * tileWidth}
       left={pos[1] * tileWidth}
       width={tileWidth}
-      height={tileWidth}
       handleTileClick={() => handleTileClick(index)}
     />
   }
 
   )
   return (
-    <div className="board">
+    <>
       {tileElements}
-    </div>
+    </>
   )
 }
 

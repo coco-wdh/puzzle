@@ -1,5 +1,5 @@
 {
-  "name": "vite-project-pnpm",
+  "name": "15-puzzle",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,8 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
+    "js-confetti": "^0.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

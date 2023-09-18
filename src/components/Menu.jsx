@@ -12,10 +12,10 @@ function Menu({ moves, time, changeSize, size }) {
     <div className="menu">
       <span className="menu--title">PUZZLE GAME</span>
       <div className="menu--info">
-        <span>MOVES {moves}</span>
-        <span>TIME {time}</span>
+        <p>MOVES {moves}</p>
+        <p>TIME {time}</p>
       </div>
-      <div className="size--btn">
+      {/* <div className="size--btn"> */}
         <div className="dropdown">
           <div className="dropbtn">
             {size}×{size}
@@ -25,7 +25,7 @@ function Menu({ moves, time, changeSize, size }) {
             {selectElements}
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </div>
   )
 }
