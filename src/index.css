@@ -217,3 +217,19 @@ main {
 .dropdown--item:hover {
   background-color: #f1f1f1
 }
+
+footer {
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #068d06;
+}
+
+footer a:hover {
+  color: #0b8221;
+  text-decoration: underline;
+}

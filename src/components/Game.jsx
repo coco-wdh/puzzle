@@ -7,7 +7,7 @@ import JSConfetti from 'js-confetti'
 
 function Game() {
   const [status, setStatus] = useState(GAME_IDLE);
-  const [size, setSize] = useState(3);
+  const [size, setSize] = useState(4);
 
   const count = size * size;
   const directions = [1, size, -1, -size];

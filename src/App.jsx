@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <Game />
-      <footer></footer>
+      <footer>designed by <a href="https://github.com/coco-wdh/puzzle">horizon</a></footer>
     </>
   )
 }
