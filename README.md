@@ -1,8 +1,9 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+react数字华容道<a name="TOP"></a>
+===================
+## 项目介绍 ##
+  数字华容道小游戏，提供3阶到5阶三种模式，[在线演示](https://coco-wdh.github.io/puzzle/)
+## 技术栈 ##
+  HTML,CSS,Javascript,React
+## 项目运行 ##
+    pnpm install
+    pnpm run dev
